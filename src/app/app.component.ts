@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LastfmService } from './services/lastfm.service';
+import { Song } from './interfaces/song.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-mat-spotify';
+
+  tracks: Song[] = []
+  selectedSong?: Song
+
+  constructor(private lastfmService: LastfmService) {}
+
+  searchByTrack(term: string) {
+    this.lastfmService.searchTrackWithAlbum(term)
+      .subscribe(tracks => {
+        this.tracks = tracks
+        console.log(this.tracks)
+      });
+  }
+
+  onSelectSong(song: Song) {
+    this.selectedSong = song;
+  }
+
 }

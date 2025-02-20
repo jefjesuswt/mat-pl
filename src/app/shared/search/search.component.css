@@ -1,0 +1,54 @@
+:host {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.token {
+    scale: 2.5;
+    margin-top: 36px;
+    margin-left: 32px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+}
+
+mat-form-field {
+    display: flex;
+    width: 30%;
+    margin-left: 20px;
+}
+
+
+
+/* izquierda */
+::ng-deep .rounded-input .mdc-notched-outline__leading {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+
+/* derecha  */
+::ng-deep .rounded-input .mdc-notched-outline__trailing {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    mat-form-field {
+        width: 90%;
+    }
+
+    .token {
+        scale: 2;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}

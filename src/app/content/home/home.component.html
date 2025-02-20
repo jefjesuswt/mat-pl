@@ -1,0 +1,35 @@
+<div *ngIf="!songs; else table">
+
+</div>
+
+<ng-template #table>
+    <mat-card>
+        <table>
+            <tbody>
+                <tr *ngFor="let song of songs; index as i" (click)="selectSong(song)">
+                    <td>
+                        <span>
+                            {{i+1}}
+                        </span>
+                    </td>
+                    <td id="song-column">
+                        <img [src]="song.image" alt="{{song.name}}">
+                        <div id="song-info">
+                            <span>
+                                {{song.name}}
+                            </span>
+                            <span>
+                                {{song.artist}}
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <span>
+                            {{song.album}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+</ng-template>

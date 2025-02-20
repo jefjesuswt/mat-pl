@@ -1,0 +1,154 @@
+:host {
+    width: 100%;
+    height: 78px; /* Mantener el reproductor compacto */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: sticky; /* Sticky en escritorio */
+    bottom: 0;
+    z-index: 10;
+    background-color: #3a3a3a;
+    padding: 10px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 12rem;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%; /* Ajustar ancho */
+    margin: 0 10px 10px;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 6px;
+}
+
+
+mat-slider {
+    width: 40rem;
+}
+
+mat-icon {
+    scale: 1.5;
+}
+
+p {
+    margin: 0;
+    text-align: start;
+}
+
+#artist {
+    font-weight: bold;
+    font-size: 12px;
+    color: rgb(164, 164, 164);
+}
+
+#song {
+    font-size: 13px;
+    font-weight: bold;
+    overflow-x: hidden;
+}
+
+.volumeControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.volumeControls mat-slider {
+    width: 9rem; /* Aumentar el tamaño del slider de volumen */
+    margin-right: 2rem;
+}
+
+.volumeControls mat-icon {
+    margin-right: 2%;
+    scale: 1;
+}
+
+#youtube-player {
+    display: none;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    :host {
+        height: 80px;
+        padding: 10px;
+        justify-content:space-around;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .info {
+        flex-direction: row;
+        flex-basis: 95%;
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .song-info {
+        text-align: left;
+    }
+
+    .play-button {
+        width: 3rem;
+        margin-top: 2%;
+        scale: 1.4;
+    }
+
+    .player-controls {
+        display: flex;
+        justify-content: flex-end; 
+        margin-left: auto;
+        flex-basis: auto; 
+        flex-grow: 0;
+        width: 5rem;
+    }
+
+
+    .player-controls
+    .prev-next-button,
+    .progress-bar,
+    .duration,
+    mat-slider,
+    .volumeControls {
+        display: none; /* Ocultamos la barra de progreso y otros controles en móvil */
+    }
+
+    mat-icon {
+        scale: 1.2;
+    }
+
+    #youtube-player {
+        display: none;
+    }
+}

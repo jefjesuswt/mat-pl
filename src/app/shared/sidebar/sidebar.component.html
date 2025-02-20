@@ -1,0 +1,27 @@
+<mat-card>
+    <div class="container">
+        <button mat-button>
+            <mat-icon>home</mat-icon>
+            <span>
+                Home
+            </span>
+        </button>
+        <button mat-button>
+            <mat-icon>favorite</mat-icon>
+            <span>
+                For You
+            </span>
+        </button>
+    </div>
+    <div class="songs-list">
+        <div *ngFor="let song of songs" class="song">
+            <div>
+                <img [src]="song.image" [alt]="song.name" style="height: 40px; border-radius: 5px;">
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <span style="font-size: small;">{{song.name}}</span>
+                <span style="font-size: small;">{{song.artist}}</span>
+            </div>
+        </div>
+    </div>
+</mat-card>

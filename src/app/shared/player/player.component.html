@@ -1,0 +1,51 @@
+<div [ngClass]="{'hidden': !song}">
+  <div class="info">
+    <mat-card>
+      <img width="64px" mat-card-image [src]="song?.image" [alt]="song?.album">
+    </mat-card>
+    <div class="song-info">
+      <p id="song">{{ song?.name }}</p>
+      <p id="artist">{{ song?.artist }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="player-controls">
+  <div class="progress-bar">
+    <mat-slider 
+      [min]="0" 
+      [max]="duration"
+      [step]="1" 
+      [disabled]="!song"
+      [showTickMarks]="false">
+      <input matSliderThumb [(ngModel)]="currentTime" (ngModelChange)="seekTo($event)">
+    </mat-slider>
+  </div>
+
+  <div class="control-buttons">
+    <button mat-icon-button class="prev-next-button">
+      <mat-icon>skip_previous</mat-icon>
+    </button>
+    
+    <button class="play-button" mat-icon-button *ngIf="!isPlaying" (click)="changePlayingStatus()">
+      <mat-icon>play_circle</mat-icon>
+    </button>
+
+    <button class="play-button" mat-icon-button *ngIf="isPlaying" (click)="changePlayingStatus()">
+      <mat-icon>pause_circle</mat-icon>
+    </button>
+  
+    <button mat-icon-button class="prev-next-button">
+      <mat-icon>skip_next</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="volumeControls">
+  <mat-icon>volume_up</mat-icon>
+  <mat-slider min="0" max="100">
+    <input matSliderThumb [(ngModel)]="this.currentVolume" (ngModelChange)="setVolume($event)">
+  </mat-slider>
+</div>
+
+<div id="youtube-player"></div>

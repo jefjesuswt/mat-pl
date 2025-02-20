@@ -1,0 +1,16 @@
+<mat-icon class="token mat-primary">
+  token
+</mat-icon>
+
+<div class="search-container">
+    <mat-form-field appearance="outline" class="rounded-input">
+      <input 
+        matInput 
+        placeholder="Look for some songs..."
+        [value]="initialValue"
+        #txtInput
+        (keyup)="onKeyPress($event, txtInput.value)"
+      >
+    </mat-form-field>
+</div>
+  

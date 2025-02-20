@@ -1,0 +1,65 @@
+.layout {
+    display: grid;
+    grid-template-columns: 21rem 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    grid-template-areas: 
+        "search search"
+        "sidebar content"
+        "footer footer";
+    overflow: hidden;
+}
+
+shared-search {
+    grid-area: search;
+    background-color: #1a1a1a;
+    width: 100%;
+}
+
+shared-sidebar {
+    grid-area: sidebar;
+    background-color: #1a1a1a;
+    color: white;
+    overflow-y: auto;
+}
+
+.content {
+    grid-area: content;
+    background-color: #1a1a1a;
+    color: white;
+    overflow-y: auto;
+    height: calc(100vh - 78px); /* Espacio restante con el player */
+
+}
+
+shared-player {
+    grid-area: footer;
+    background-color: #3a3a3a;
+    color: white;
+    text-align: center;
+    position: sticky; /* En modo escritorio usamos sticky */
+    bottom: 0;
+    width: 100%;
+    height: 78px;
+    z-index: 2;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: 
+            "search"
+            "content"
+            "footer";
+    }
+
+    shared-sidebar {
+        display: none;
+    }
+
+    shared-player {
+        position: fixed; /* En móviles usamos fixed */
+    }
+}
